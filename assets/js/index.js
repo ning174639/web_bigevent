@@ -16,7 +16,7 @@ $(function () {
     })
 })
 
-//获取用户信息
+//获取用户信息  这个方法必须是全局的  后边的要用  写在入口函数里面就是局部函数就拿不到
 function getUserInfo() {
     $.ajax({
         url: '/my/userinfo',
@@ -25,7 +25,6 @@ function getUserInfo() {
         //     Authorization: localStorage.getItem('token') || '',
         // },
         success: function (res) {
-            console.log(res)
             if (res.status !== 0) {
                 return layui.layer.msg(res.message)
             }
